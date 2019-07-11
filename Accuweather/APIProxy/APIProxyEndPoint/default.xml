@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndPoint default="true">
+    <name>default</name>
+    <base_path>/accuweather/region</base_path>
+    <properties/>
+    <routeRules>
+        <routeRule>
+            <name>default</name>
+            <targetEndPointName>default</targetEndPointName>
+            <sequence>1</sequence>
+            <faultRules/>
+        </routeRule>
+    </routeRules>
+    <faultRules/>
+    <preFlow>
+        <name>PreFlow</name>
+        <request>
+            <isRequest>true</isRequest>
+            <steps>
+                <step>
+                    <policy_name>VerifyAPIKey</policy_name>
+                    <condition> </condition>
+                    <sequence>1</sequence>
+                </step>
+                <step>
+                    <policy_name>Quota</policy_name>
+                    <condition> </condition>
+                    <sequence>2</sequence>
+                </step>
+                <step>
+                    <policy_name>ExtractVariables</policy_name>
+                    <condition> </condition>
+                    <sequence>3</sequence>
+                </step>
+            </steps>
+        </request>
+        <response>
+            <isRequest>false</isRequest>
+            <steps/>
+        </response>
+    </preFlow>
+    <postFlow>
+        <name>PostFlow</name>
+        <request>
+            <isRequest>true</isRequest>
+            <steps/>
+        </request>
+        <response>
+            <isRequest>false</isRequest>
+            <steps/>
+        </response>
+    </postFlow>
+    <conditionalFlows/>
+</ProxyEndPoint>

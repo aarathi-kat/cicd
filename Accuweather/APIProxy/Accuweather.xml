@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy>
+    <name>Accuweather</name>
+    <title>Accuweather</title>
+    <description>&lt;p&gt;&lt;strong&gt;PLEASE DO NOT MODIFY THIS&amp;nbsp;API !!!&lt;/strong&gt;&lt;/p&gt; 
+&lt;p&gt;This API demonstrates 1) APIKey verification on header 2) Quota Policy 3) Passing second APIkey for endpoint url via header. &amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt; 
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;</description>
+    <service_code>REST</service_code>
+    <life_cycle>
+        <changed_by>S0008287092</changed_by>
+        <created_by>KATTIA03</created_by>
+    </life_cycle>
+    <proxyEndPoints>
+        <proxyEndPoint>
+            <proxyEndPointName>default</proxyEndPointName>
+            <apiResourceName>SWAGGER_JSON</apiResourceName>
+        </proxyEndPoint>
+    </proxyEndPoints>
+    <targetEndPoints>
+        <targetEndPoint>default</targetEndPoint>
+    </targetEndPoints>
+    <policies>
+        <policy type="VerifyAPIKey">VerifyAPIKey</policy>
+        <policy type="RaiseFault">defaultRaiseFaultPolicy</policy>
+        <policy type="BasicAuth">Authorization</policy>
+        <policy type="PopulateCache">cacheaccesstoken</policy>
+        <policy type="AssignMessage">getcredential</policy>
+        <policy type="ServiceCallout">getoauthtoken</policy>
+        <policy type="RaiseFault">raisetokenerror</policy>
+        <policy type="ExtractVariable">readaccesstoken</policy>
+        <policy type="LookupCache">readcachedtoken</policy>
+        <policy type="AssignMessage">setAccessToken</policy>
+        <policy type="BasicAuth">setcredentials</policy>
+        <policy type="OAuthV2">OauthCheck</policy>
+        <policy type="Quota">Quota</policy>
+        <policy type="AssignMessage">AssignMessage</policy>
+        <policy type="ExtractVariable">ExtractVariables</policy>
+        <policy type="AssignMessage">APIKeyAssign</policy>
+        <policy type="AssignMessage">Assignheader</policy>
+        <policy type="AssignMessage">AssignAccu</policy>
+    </policies>
+    <fileResources/>
+</APIProxy>

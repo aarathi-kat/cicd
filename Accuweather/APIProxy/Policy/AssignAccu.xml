@@ -1,0 +1,16 @@
+<!-- This policy can be used to create or modify the standard HTTP request and response messages -->
+<AssignMessage async="false" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+ 	<!-- Sets a new value to the existing parameter -->
+    <Remove>
+        <Headers>
+            <Header name="APIKey"></Header>
+        </Headers>
+    </Remove> 	
+	<Add>
+         <QueryParams>
+            <QueryParam name="apikey">{request.header.key}</QueryParam>
+         </QueryParams>
+    </Add>
+	<IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+	<AssignTo createNew="false" type="request">response</AssignTo>
+</AssignMessage>
